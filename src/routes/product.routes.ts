@@ -4,13 +4,13 @@ import middleware from '../middlewares/index';
 
 const router = express.Router();
 
+const validateProduct = [
+  middleware.name,
+  middleware.amount,
+];
+
 router.get('/', productController.get);
 
-router.post(
-  '/', 
-  middleware.name, 
-  middleware.amount,
-  productController.post,
-);
+router.post('/', validateProduct, productController.post);
 
 export = router;

@@ -1,13 +1,14 @@
 import express from 'express';
 import 'express-async-errors';
 
-import produtctRouter from './routes/product.routes';
+import routes from './routes/index';
 import errorHandler from './middlewares/errorHandler';
 
 const app = express();
 app.use(express.json());
 
-app.use('/products', produtctRouter);
+app.use('/products', routes.product);
+app.use('/users', routes.user);
 
 app.use(errorHandler);
 
