@@ -1,4 +1,3 @@
-// import { RowDataPacket } from 'mysql2';
 import { ResultSetHeader } from 'mysql2';
 import connection from './connection';
 
@@ -14,6 +13,7 @@ const post = async (name: string, amount:string) => {
   return ({ id: products.insertId, name, amount,
   });
 };
+
 export = {
   get,
   post,

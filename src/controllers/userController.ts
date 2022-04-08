@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
 import userService from '../services/userService';
+import tokenUser from '../helpers/tokenUser';
 
 const post = async (req: Request, res: Response) => {
   const { username, classe, level, password } = req.body;
 
-  const user = await userService.post(username, classe, level, password);  
+  await userService.post(username, classe, level, password);  
 
-  return res.status(201).json(user);
+  const token = tokenUser({ username, classe, level });
+
+  return res.status(201).json({ token });
 };
 
 export = {

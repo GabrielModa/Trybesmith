@@ -1,3 +1,4 @@
+import { RowDataPacket } from 'mysql2';
 import connection from './connection';
 
 const post = async (
@@ -6,11 +7,12 @@ const post = async (
   level: number, 
   password: string,
 ) => {
-  await connection.execute(`INSERT Trybesmith.Users
+  await connection.execute<RowDataPacket[]>(`INSERT Trybesmith.Users
    ( username, classe, level, password )
     VALUES (?, ?, ?, ?)`, [username, classe, level, password]);
   return ({ username, classe, level, password });
 };
+
 export = {
   post,
 };
