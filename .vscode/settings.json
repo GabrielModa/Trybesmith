@@ -1,0 +1,9 @@
+{
+  "exportall.config.relExclusion": [
+    "/src/interfaces/tokeData.ts",
+    "/src/interfaces/index.ts"
+  ],
+  "exportall.config.folderListener": [
+    "/src/interfaces"
+  ]
+}
